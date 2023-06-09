@@ -25,3 +25,7 @@ $router->post('/uAdd', 'UserController@userAdd'); // create new user record
 $router->put('/uUpdate/{id}', 'UserController@userUpdate'); // update user record
 
 $router->delete('/uDelete/{id}', 'UserController@userDelete'); // delete record
+
+
+$router->get('/userjob','UserJobController@index');
+$router->get('userjob/{id}', 'UserJobController@show');

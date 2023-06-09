@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Moddels\UserJob;
 use App\Traits\ApiResponser;
 use DB;
 
@@ -27,7 +28,8 @@ $this->request = $request;
         'studentFname' => 'required|max:50',
         'studentLname' => 'required|max:50',
         'studentMname' => 'required|max:50',
-        'birthdate' => 'required|date_format:Y/m/d|max:50',
+        'jobID' => 'required|numeric|min:1|not_in:0',
+    
         ];
         $this->validate($request,$rules);
         $users = User::create($request->all());
@@ -40,7 +42,8 @@ $this->request = $request;
     'studentFname' => 'required|max:50',
     'studentLname' => 'required|max:50',
     'studentMname' => 'required|max:50',
-    'birthdate' => 'required|date_format:Y/m/d|max:50',
+    'jobID' => 'required|numeric|min:1|not_in:0',
+    
     ];
     $this->validate($request, $rules);
     $user = User::findOrFail($id);
